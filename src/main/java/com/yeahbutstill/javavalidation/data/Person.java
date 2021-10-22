@@ -1,6 +1,8 @@
 package com.yeahbutstill.javavalidation.data;
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class Person {
@@ -12,6 +14,10 @@ public class Person {
     @NotBlank(message = "last name can not blank")
     @Size(max = 20, message = "last name length max must 20 characters")
     private String lastName;
+
+    @NotNull(message = "address can not null")
+    @Valid // menandakan kita ingin object didalamnya harus divalidasi juga
+    private Address address;
 
     public Person() {
     }
@@ -35,6 +41,14 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
