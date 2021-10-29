@@ -30,6 +30,9 @@ public abstract class AbstractValidatorTest {
         for (ConstraintViolation<Object> violation : violations) {
             System.out.println(violation.getPropertyPath());
             System.out.println(violation.getMessage());
+            System.out.println(violation.getLeafBean());
+            System.out.println(violation.getConstraintDescriptor().getAnnotation());
+            System.out.println(violation.getInvalidValue());
             System.out.println("========================");
         }
     }
@@ -39,6 +42,9 @@ public abstract class AbstractValidatorTest {
         for (ConstraintViolation<Object> violation : violations) {
             System.out.println(violation.getPropertyPath());
             System.out.println(violation.getMessage());
+            System.out.println(violation.getLeafBean());
+            System.out.println(violation.getConstraintDescriptor().getAnnotation());
+            System.out.println(violation.getInvalidValue());
             System.out.println("========================");
         }
     }

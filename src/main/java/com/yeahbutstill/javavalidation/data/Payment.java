@@ -2,10 +2,14 @@ package com.yeahbutstill.javavalidation.data;
 
 import groupconstraint.CreditCardPaymentGroup;
 import groupconstraint.VirtualAccountPaymentGroup;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.groups.ConvertGroup;
+import jakarta.validation.groups.Default;
 import org.hibernate.validator.constraints.LuhnCheck;
 import org.hibernate.validator.constraints.Range;
+import payload.EmailErrorPayload;
 
 public class Payment {
     @NotBlank(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class}, message = "order id must not blank")
@@ -16,20 +20,35 @@ public class Payment {
     private Long amount;
 
     @NotBlank(groups = {CreditCardPaymentGroup.class}, message = "credit card must not blank")
-    @LuhnCheck(groups = {CreditCardPaymentGroup.class}, message = "credit card must valid number")
+    @LuhnCheck(groups = {CreditCardPaymentGroup.class}, message = "credit card must valid number", payload = {EmailErrorPayload.class})
     private String creditCard;
 
     @NotBlank(groups = {VirtualAccountPaymentGroup.class}, message = "virtual account must not blank")
     private String virtualAccount;
 
-    public Payment(String orderId, Long amount, String creditCard, String virtualAccount) {
+    @Valid
+    @NotNull(groups = {VirtualAccountPaymentGroup.class, CreditCardPaymentGroup.class}, message = "customer can not null")
+    @ConvertGroup(from = CreditCardPaymentGroup.class, to = Default.class)
+    @ConvertGroup(from = VirtualAccountPaymentGroup.class, to = Default.class)
+    private Customer customer;
+
+    public Payment(String orderId, Long amount, String creditCard, String virtualAccount, Customer customer) {
         this.orderId = orderId;
         this.amount = amount;
         this.creditCard = creditCard;
         this.virtualAccount = virtualAccount;
+        this.customer = customer;
     }
 
     public Payment() {
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public String getOrderId() {
@@ -71,6 +90,7 @@ public class Payment {
                 ", amount=" + amount +
                 ", creditCard='" + creditCard + '\'' +
                 ", virtualAccount='" + virtualAccount + '\'' +
+                ", customer=" + customer +
                 '}';
     }
 }
