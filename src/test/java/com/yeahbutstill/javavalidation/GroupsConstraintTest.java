@@ -5,7 +5,7 @@ import groupconstraint.CreditCardPaymentGroup;
 import groupconstraint.VirtualAccountPaymentGroup;
 import org.junit.jupiter.api.Test;
 
-public class GroupsConstraintTest extends AbstractValidatorTest{
+public class GroupsConstraintTest extends AbstractValidatorTest {
     @Test
     void testCreditCardGroupsInvalid() {
         Payment payment = new Payment();

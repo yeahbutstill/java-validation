@@ -28,7 +28,7 @@ public class PayloadTest extends AbstractValidatorTest {
 
             Set<Class<? extends Payload>> payload = violation.getConstraintDescriptor().getPayload();
             for (Class<? extends Payload> payloadClass : payload) {
-                if (payloadClass == EmailErrorPayload.class){
+                if (payloadClass == EmailErrorPayload.class) {
                     EmailErrorPayload emailErrorPayload = new EmailErrorPayload();
                     emailErrorPayload.sendEmail(violation);
                 }

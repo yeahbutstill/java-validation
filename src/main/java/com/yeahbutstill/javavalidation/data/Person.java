@@ -19,12 +19,23 @@ public class Person {
     @Valid // menandakan kita ingin object didalamnya harus divalidasi juga
     private Address address;
 
+    @Valid
     public Person() {
     }
 
+    @Valid
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    @Valid
+    public Person(@NotBlank(message = "first name can not blank") String firstName,
+                  @NotBlank(message = "last name can not blank") String lastName,
+                  @NotNull(message = "address can not null") @Valid Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
     }
 
     public String getFirstName() {
@@ -58,7 +69,7 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
-    
+
     public void sayHello(@NotBlank(message = "name can not blank") String name) {
         System.out.println("Hello " + name + ", my name is " + firstName);
     }
