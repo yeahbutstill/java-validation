@@ -1,5 +1,7 @@
 package com.yeahbutstill.javavalidation.data;
 
+import constrain.CheckCase;
+import enums.CaseMode;
 import groupconstraint.CreditCardPaymentGroup;
 import groupconstraint.VirtualAccountPaymentGroup;
 import jakarta.validation.Valid;
@@ -13,6 +15,9 @@ import org.hibernate.validator.constraints.Range;
 import payload.EmailErrorPayload;
 
 public class Payment {
+
+    @CheckCase(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class},
+    mode = CaseMode.UPPER, message = "{order.id.upper}")
     @NotBlank(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class}, message = "{order.id.notblank}")
     @Size(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class}, min = 1, max = 10, message = "{order.id.size}")
     private String orderId;
