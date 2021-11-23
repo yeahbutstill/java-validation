@@ -1,10 +1,10 @@
-package constrain;
+package com.yeahbutstill.javavalidation.constrain;
 
 /**
  * Annotation CheckCase
  */
 
-import enums.CaseMode;
+import com.yeahbutstill.javavalidation.enums.CaseMode;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

@@ -1,4 +1,4 @@
-package payload;
+package com.yeahbutstill.javavalidation.payload;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Payload;

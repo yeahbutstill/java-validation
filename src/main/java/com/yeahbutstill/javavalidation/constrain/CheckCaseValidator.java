@@ -1,6 +1,6 @@
-package constrain;
+package com.yeahbutstill.javavalidation.constrain;
 
-import enums.CaseMode;
+import com.yeahbutstill.javavalidation.enums.CaseMode;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

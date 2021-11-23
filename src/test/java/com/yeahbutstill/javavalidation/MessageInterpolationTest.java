@@ -1,7 +1,7 @@
 package com.yeahbutstill.javavalidation;
 
 import com.yeahbutstill.javavalidation.data.Payment;
-import groupconstraint.VirtualAccountPaymentGroup;
+import com.yeahbutstill.javavalidation.groupconstraint.VirtualAccountPaymentGroup;
 import org.junit.jupiter.api.Test;
 
 public class MessageInterpolationTest extends AbstractValidatorTest {

@@ -2,11 +2,11 @@ package com.yeahbutstill.javavalidation;
 
 import com.yeahbutstill.javavalidation.data.Customer;
 import com.yeahbutstill.javavalidation.data.Payment;
-import groupconstraint.CreditCardPaymentGroup;
+import com.yeahbutstill.javavalidation.groupconstraint.CreditCardPaymentGroup;
+import com.yeahbutstill.javavalidation.payload.EmailErrorPayload;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Payload;
 import org.junit.jupiter.api.Test;
-import payload.EmailErrorPayload;
 
 import java.util.Set;
 

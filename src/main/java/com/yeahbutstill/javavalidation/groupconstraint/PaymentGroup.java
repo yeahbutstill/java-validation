@@ -1,4 +1,4 @@
-package groupconstraint;
+package com.yeahbutstill.javavalidation.groupconstraint;
 
 
 import jakarta.validation.GroupSequence;

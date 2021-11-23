@@ -1,7 +1,7 @@
 package com.yeahbutstill.javavalidation;
 
 import com.yeahbutstill.javavalidation.data.Payment;
-import groupconstraint.CreditCardPaymentGroup;
+import com.yeahbutstill.javavalidation.groupconstraint.CreditCardPaymentGroup;
 import org.junit.jupiter.api.Test;
 
 public class ConstraintCompositionTest extends AbstractValidatorTest {

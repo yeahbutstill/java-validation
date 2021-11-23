@@ -1,8 +1,9 @@
 package com.yeahbutstill.javavalidation.data;
 
-import constrain.CheckOrderId;
-import groupconstraint.CreditCardPaymentGroup;
-import groupconstraint.VirtualAccountPaymentGroup;
+import com.yeahbutstill.javavalidation.constrain.CheckOrderId;
+import com.yeahbutstill.javavalidation.groupconstraint.CreditCardPaymentGroup;
+import com.yeahbutstill.javavalidation.groupconstraint.VirtualAccountPaymentGroup;
+import com.yeahbutstill.javavalidation.payload.EmailErrorPayload;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,7 +11,6 @@ import jakarta.validation.groups.ConvertGroup;
 import jakarta.validation.groups.Default;
 import org.hibernate.validator.constraints.LuhnCheck;
 import org.hibernate.validator.constraints.Range;
-import payload.EmailErrorPayload;
 
 public class Payment {
 

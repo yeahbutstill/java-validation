@@ -1,6 +1,6 @@
 package com.yeahbutstill.javavalidation.data;
 
-import constrain.CheckPassword;
+import com.yeahbutstill.javavalidation.constrain.CheckPassword;
 import jakarta.validation.constraints.NotBlank;
 
 @CheckPassword(message = "password must same with retypePassword")

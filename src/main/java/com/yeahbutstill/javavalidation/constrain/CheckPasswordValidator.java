@@ -1,4 +1,4 @@
-package constrain;
+package com.yeahbutstill.javavalidation.constrain;
 
 import com.yeahbutstill.javavalidation.data.Register;
 import jakarta.validation.ConstraintValidator;

@@ -1,8 +1,8 @@
-package constrain;
+package com.yeahbutstill.javavalidation.constrain;
 
-import enums.CaseMode;
-import groupconstraint.CreditCardPaymentGroup;
-import groupconstraint.VirtualAccountPaymentGroup;
+import com.yeahbutstill.javavalidation.enums.CaseMode;
+import com.yeahbutstill.javavalidation.groupconstraint.CreditCardPaymentGroup;
+import com.yeahbutstill.javavalidation.groupconstraint.VirtualAccountPaymentGroup;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 import jakarta.validation.ReportAsSingleViolation;

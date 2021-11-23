@@ -1,7 +1,7 @@
 package com.yeahbutstill.javavalidation;
 
 import com.yeahbutstill.javavalidation.data.Payment;
-import groupconstraint.PaymentGroup;
+import com.yeahbutstill.javavalidation.groupconstraint.PaymentGroup;
 import org.junit.jupiter.api.Test;
 
 public class GroupSequenceTest extends AbstractValidatorTest {

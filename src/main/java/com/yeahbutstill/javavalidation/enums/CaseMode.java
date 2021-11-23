@@ -1,4 +1,4 @@
-package enums;
+package com.yeahbutstill.javavalidation.enums;
 
 /**
  * Check Case Constrain

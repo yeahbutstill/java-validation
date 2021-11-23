@@ -1,7 +1,7 @@
 package com.yeahbutstill.javavalidation;
 
 import com.yeahbutstill.javavalidation.data.Payment;
-import groupconstraint.CreditCardPaymentGroup;
+import com.yeahbutstill.javavalidation.groupconstraint.CreditCardPaymentGroup;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.MessageInterpolator;
 import org.hibernate.validator.internal.engine.MessageInterpolatorContext;
