@@ -1,13 +1,11 @@
 package com.yeahbutstill.javavalidation.data;
 
-import constrain.CheckCase;
-import enums.CaseMode;
+import constrain.CheckOrderId;
 import groupconstraint.CreditCardPaymentGroup;
 import groupconstraint.VirtualAccountPaymentGroup;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import jakarta.validation.groups.ConvertGroup;
 import jakarta.validation.groups.Default;
 import org.hibernate.validator.constraints.LuhnCheck;
@@ -16,10 +14,7 @@ import payload.EmailErrorPayload;
 
 public class Payment {
 
-    @CheckCase(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class},
-    mode = CaseMode.UPPER, message = "{order.id.upper}")
-    @NotBlank(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class}, message = "{order.id.notblank}")
-    @Size(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class}, min = 1, max = 10, message = "{order.id.size}")
+    @CheckOrderId(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class})
     private String orderId;
 
     @NotNull(groups = {CreditCardPaymentGroup.class, VirtualAccountPaymentGroup.class}, message = "{amount.notnull}")
