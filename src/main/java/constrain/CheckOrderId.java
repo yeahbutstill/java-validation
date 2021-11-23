@@ -5,6 +5,7 @@ import groupconstraint.CreditCardPaymentGroup;
 import groupconstraint.VirtualAccountPaymentGroup;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
+import jakarta.validation.ReportAsSingleViolation;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -18,6 +19,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = {})
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
+@ReportAsSingleViolation
 public @interface CheckOrderId {
 
     String message() default "invalid order id";
