@@ -23,8 +23,8 @@ public class CrossParameterValidationTest extends AbstractValidatorTest {
 
         Set<ConstraintViolation<UserService>> violations = executableValidator
                 .validateParameters(userService, method, new Object[]{
-                username, password, retypePassword
-        });
+                        username, password, retypePassword
+                });
 
         for (ConstraintViolation<UserService> violation : violations) {
             System.out.println(violation.getPropertyPath());

@@ -1,6 +1,8 @@
 package com.yeahbutstill.javavalidation;
 
 import com.yeahbutstill.javavalidation.extractor.DataValueExtractor;
+import com.yeahbutstill.javavalidation.extractor.EntryValueExtractorKey;
+import com.yeahbutstill.javavalidation.extractor.EntryValueExtractorValue;
 import jakarta.validation.*;
 import jakarta.validation.executable.ExecutableValidator;
 import org.junit.jupiter.api.AfterEach;
@@ -23,6 +25,9 @@ public abstract class AbstractValidatorTest {
         // tambahkan DataValueExtractor yang tadi telah kita buat untuk menvalidasi data container
         validatorFactory = Validation.byDefaultProvider().configure()
                 .addValueExtractor(new DataValueExtractor())
+                // registrasikan EntryValueExtractor Key dan Value
+                .addValueExtractor(new EntryValueExtractorKey())
+                .addValueExtractor(new EntryValueExtractorValue())
                 .buildValidatorFactory();
         validator = validatorFactory.getValidator();
         executableValidator = validator.forExecutables();
