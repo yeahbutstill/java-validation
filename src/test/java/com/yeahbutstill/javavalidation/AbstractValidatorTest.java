@@ -1,5 +1,6 @@
 package com.yeahbutstill.javavalidation;
 
+import com.yeahbutstill.javavalidation.extractor.DataValueExtractor;
 import jakarta.validation.*;
 import jakarta.validation.executable.ExecutableValidator;
 import org.junit.jupiter.api.AfterEach;
@@ -18,7 +19,11 @@ public abstract class AbstractValidatorTest {
 
     @BeforeEach
     void setUp() {
-        validatorFactory = Validation.buildDefaultValidatorFactory();
+//        validatorFactory = Validation.buildDefaultValidatorFactory();
+        // tambahkan DataValueExtractor yang tadi telah kita buat
+        validatorFactory = Validation.byDefaultProvider().configure()
+                .addValueExtractor(new DataValueExtractor())
+                .buildValidatorFactory();
         validator = validatorFactory.getValidator();
         executableValidator = validator.forExecutables();
         messageInterpolator = validatorFactory.getMessageInterpolator();

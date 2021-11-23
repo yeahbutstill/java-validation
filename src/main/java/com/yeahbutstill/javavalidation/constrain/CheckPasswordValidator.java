@@ -30,11 +30,11 @@ public class CheckPasswordValidator implements ConstraintValidator<CheckPassword
         if (!isValid) {
             // disable dulu message defaultnya
             context.disableDefaultConstraintViolation();
-            
+
             context.buildConstraintViolationWithTemplate(messageTemplate)
                     .addPropertyNode("password") // kita kasih tau kalau passwordnya salah
                     .addConstraintViolation();
-            
+
             context.buildConstraintViolationWithTemplate(messageTemplate)
                     .addPropertyNode("retypePassword") // kita kasih tau kalau passwordnya salah
                     .addConstraintViolation();
