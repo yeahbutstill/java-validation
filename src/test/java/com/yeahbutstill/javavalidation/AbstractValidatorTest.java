@@ -1,5 +1,6 @@
 package com.yeahbutstill.javavalidation;
 
+import com.yeahbutstill.javavalidation.extractor.DataIntegerValueExtractor;
 import com.yeahbutstill.javavalidation.extractor.DataValueExtractor;
 import com.yeahbutstill.javavalidation.extractor.EntryValueExtractorKey;
 import com.yeahbutstill.javavalidation.extractor.EntryValueExtractorValue;
@@ -28,6 +29,7 @@ public abstract class AbstractValidatorTest {
                 // registrasikan EntryValueExtractor Key dan Value
                 .addValueExtractor(new EntryValueExtractorKey())
                 .addValueExtractor(new EntryValueExtractorValue())
+                .addValueExtractor(new DataIntegerValueExtractor())
                 .buildValidatorFactory();
         validator = validatorFactory.getValidator();
         executableValidator = validator.forExecutables();

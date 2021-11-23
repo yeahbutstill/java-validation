@@ -1,8 +1,10 @@
 package com.yeahbutstill.javavalidation;
 
 import com.yeahbutstill.javavalidation.container.Data;
+import com.yeahbutstill.javavalidation.container.DataInteger;
 import com.yeahbutstill.javavalidation.container.Entry;
 import com.yeahbutstill.javavalidation.data.SampleData;
+import com.yeahbutstill.javavalidation.data.SampleDataInteger;
 import com.yeahbutstill.javavalidation.data.SampleEntry;
 import org.junit.jupiter.api.Test;
 
@@ -28,6 +30,17 @@ public class ValueExtractorTest extends AbstractValidatorTest {
         sampleEntry.getEntry().setValue(" ");
 
         validate(sampleEntry);
+
+    }
+
+    @Test
+    void testSampleDataInteger() {
+
+        SampleDataInteger sampleDataInteger = new SampleDataInteger();
+        sampleDataInteger.setData(new DataInteger());
+        sampleDataInteger.getData().setData(0);
+
+        validate(sampleDataInteger);
 
     }
 }
