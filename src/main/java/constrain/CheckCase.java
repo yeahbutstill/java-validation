@@ -13,7 +13,8 @@ import java.lang.annotation.*;
 @Documented
 @Constraint(validatedBy = {CheckCaseValidator.class})
 @Target({ElementType.FIELD,
-        ElementType.ANNOTATION_TYPE
+        ElementType.ANNOTATION_TYPE,
+        ElementType.TYPE // ini adalah target Class-Level Constraint
 })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CheckCase {
