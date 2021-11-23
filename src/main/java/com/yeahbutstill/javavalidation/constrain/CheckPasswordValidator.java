@@ -11,9 +11,11 @@ import jakarta.validation.ConstraintValidatorContext;
 */
 public class CheckPasswordValidator implements ConstraintValidator<CheckPassword, Register> {
 
+    private String messageTemplate;
+
     @Override
     public void initialize(CheckPassword constraintAnnotation) {
-        ConstraintValidator.super.initialize(constraintAnnotation);
+        messageTemplate = constraintAnnotation.message();
     }
 
     @Override
@@ -21,6 +23,24 @@ public class CheckPasswordValidator implements ConstraintValidator<CheckPassword
         if (value.getPassword() == null || value.getRetypePassword() == null) {
             return true; // skip validation
         }
-        return value.getPassword().equals(value.getRetypePassword());
+
+        // Constraint Validator Context
+        boolean isValid = value.getPassword().equals(value.getRetypePassword());
+
+        if (!isValid) {
+            // disable dulu message defaultnya
+            context.disableDefaultConstraintViolation();
+            
+            context.buildConstraintViolationWithTemplate(messageTemplate)
+                    .addPropertyNode("password") // kita kasih tau kalau passwordnya salah
+                    .addConstraintViolation();
+            
+            context.buildConstraintViolationWithTemplate(messageTemplate)
+                    .addPropertyNode("retypePassword") // kita kasih tau kalau passwordnya salah
+                    .addConstraintViolation();
+
+        }
+
+        return isValid;
     }
 }
