@@ -20,7 +20,7 @@ public abstract class AbstractValidatorTest {
     @BeforeEach
     void setUp() {
 //        validatorFactory = Validation.buildDefaultValidatorFactory();
-        // tambahkan DataValueExtractor yang tadi telah kita buat
+        // tambahkan DataValueExtractor yang tadi telah kita buat untuk menvalidasi data container
         validatorFactory = Validation.byDefaultProvider().configure()
                 .addValueExtractor(new DataValueExtractor())
                 .buildValidatorFactory();
